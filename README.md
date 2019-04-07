@@ -2,6 +2,9 @@
 
 A simple javascript ansible vault client to encrypt and decrypt vaults
 
+### This will only work on a secure (https) connection
+The WebCrypto spec requires a secure connection therefore an error will be thrown if you attempt to call encrypt() or decrypt() when serving over an insecure connection (see https://github.com/w3c/webcrypto/issues/28). At least in Chrome, crypto functions are undefined on insecure connections (https://www.chromium.org/blink/webcrypto).
+
 ## Usage
 ```
 import ansibleVault from './ansible-vault.js';
